@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Routes, Route } from 'react-router-dom'
+import './Styles/App.scss'
+import Navbar from './Components/Navbar'
+import Home from './Components/Home'
+import ErrorsModal from './Components/ErrorsModal'
+import { ErrorsProvider } from './Contexts/ErrorContextProvider'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <main>
+      <ErrorsProvider>
+        <Navbar />
+        <ErrorsModal />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+        </Routes>
+      </ErrorsProvider>
+    </main>
+  )
 }
 
 export default App;
