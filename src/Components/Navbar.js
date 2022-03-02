@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
 import '../Styles/Navbar.scss'
 
 const Navbar = () => {
   const [ input, setInput ] = useState('')
+  const navigate = useNavigate()
 
   const handleChange = event => {
     setInput(event.target.value)
@@ -10,7 +12,8 @@ const Navbar = () => {
   
   const handleKeyUp = event => {
     event.preventDefault()
-    // return event.code === 'Enter' ? navigate() : null
+    const path = (`/search?${event.target.value}`)
+    return event.code === 'Enter' ? navigate(path) : null
   }
 
   return (
