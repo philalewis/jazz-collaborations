@@ -16,7 +16,7 @@ const Artist = () => {
 
   return (
     <section>
-      <img src="" alt=""/>
+      <img src={artist.photo} alt={`Picture of ${artist.name}`}/>
       <h2>{artist.name}</h2>
       <p>{artist.instrument}</p>
     </section>

@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { getArtistNames } from '../apiCalls'
-import Name from './Name'
 import { Errors } from '../Contexts/ErrorContextProvider'
 
 const Home = () => {
@@ -21,10 +20,7 @@ const Home = () => {
     const path = `/artist/${name.id}`
     return (
       <Link to={path} key={name.id}>
-        <Name
-          id={name.id}
-          name={name.name}
-        />
+        <h3 className="artist-link">{name.name}</h3>
       </Link>
     )
   })
