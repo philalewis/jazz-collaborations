@@ -18,7 +18,7 @@ const Home = () => {
   }, [])
 
   const musicians = names.map(name => {
-    const path = `/musician/${name.id}`
+    const path = `/artist/${name.id}`
     return (
       <Link to={path} key={name.id}>
         <Name
