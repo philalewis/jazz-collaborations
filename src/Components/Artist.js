@@ -20,12 +20,12 @@ const Artist = () => {
 
   return (
     <section className="artist-page">
-      <section className="artist-container">
+      <div className="artist-container">
         <img className="artist-image" src={artist.photo} alt={`Picture of ${artist.name}`}/>
         <h2 className="artist-name">{artist.name}</h2>
         <p className="instrument">Instrument: {artist.instrument}</p>
         {artist.albums && <ArtistAlbums albums={artist.albums}/>}
-      </section>
+      </div>
     </section>
   )
 }
