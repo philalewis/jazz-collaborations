@@ -4,6 +4,7 @@ import { Errors } from '../Contexts/ErrorContextProvider'
 import { getAlbum } from '../apiCalls'
 import '../Styles/Album.scss'
 import CollaborationsForm from './CollaboratorsForm'
+import Personnel from './Personnel'
 
 const Album = () => {
   const [ album, setAlbum ] = useState(null)
@@ -41,9 +42,14 @@ const Album = () => {
 
   const musicians = () => album.musicians.map(musician => {
     return (
-      <article key={musician.name} className="musician-info">
-        <p>{musician.name} ({musician.instrument})</p>
-      </article>
+      <Personnel 
+        name={musician.name}
+        instruments={musician.instrument}
+        key={musician.name}
+      />
+      // <article key={musician.name} className="musician-info">
+      //   <p>{musician.name} ({musician.instrument})</p>
+      // </article>
     )
   })
 
