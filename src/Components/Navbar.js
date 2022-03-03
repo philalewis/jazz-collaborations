@@ -28,7 +28,9 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <section className="header-section">
-        <h1>Jazz Collaborations</h1>
+        <Link to='/' className="home-button">
+          <h1>Jazz Collaborations</h1>
+        </Link>
       </section>
       <section className="searchbar-section">
         <input

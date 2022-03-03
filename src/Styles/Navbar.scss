@@ -5,16 +5,21 @@
   height: 15%;
 }
 
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
 .header-section {
   background-color: $dark-blue;
   display: flex;
   justify-content: center;
+  align-items: center;
   height: 65%;
 }
 
 h1 {
-  font-size: 36px;
-  margin: 1%;
+  font-size: 30px;
   color: $white;
 }
 
