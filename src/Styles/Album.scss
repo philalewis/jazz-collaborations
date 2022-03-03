@@ -24,10 +24,39 @@
 }
 
 .album-cover {
-  width: 35%;
+  width: 30%;
 }
 
 .album-title {
   font-size: 24px;
   margin: 5px;
+}
+
+.musicians-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.musician-info {
+  margin: 4px;
+}
+
+.album-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.album-artist {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.release-year {
+  width: 100%;
+  font-size: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid $dark-blue;
+  text-align: center;
 }
