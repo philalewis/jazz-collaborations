@@ -19,3 +19,14 @@ export const getSingleArtist = async (id) => {
     throw `${error.status} ${error.statusText}`
   }
 }
+
+export const getAlbum = async (id) => {
+  const response = await fetch(`http://localhost:3000/api/v1/album/${id}`)
+
+  try {
+    const data = await response.json()
+    return data
+  } catch(error) {
+    throw `${error.status} ${error.statusText}`
+  }
+}

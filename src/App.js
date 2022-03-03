@@ -7,6 +7,7 @@ import Navbar from './Components/Navbar'
 import Home from './Components/Home'
 import ErrorsModal from './Components/ErrorsModal'
 import Artist from './Components/Artist'
+import Album from './Components/Album'
 
 const App = () => {
   return (
@@ -17,7 +18,8 @@ const App = () => {
           <ErrorsModal />
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route path="/artist/:id" element={<Artist />}/>
+            <Route path="/artist/:id" element={<Artist />} />
+            <Route path="/album/:id" element={<Album />} />
           </Routes>
         </CollaborationsProvider>
       </ErrorsProvider>
