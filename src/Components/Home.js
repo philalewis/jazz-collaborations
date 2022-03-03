@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { getArtistNames } from '../apiCalls'
-import Name from './Name'
 import { Errors } from '../Contexts/ErrorContextProvider'
+import '../Styles/Home.scss'
 
 const Home = () => {
   const [ names, setNames ] = useState([])
@@ -18,20 +18,23 @@ const Home = () => {
   }, [])
 
   const musicians = names.map(name => {
-    const path = `/musician/${name.id}`
+    const path = `/artist/${name.id}`
     return (
       <Link to={path} key={name.id}>
-        <Name
-          id={name.id}
-          name={name.name}
-        />
+        <h3 className="artist-link">{name.name}</h3>
       </Link>
     )
   })
 
   return (
-    <section>
-      { musicians }
+    <section className="home-page">
+      <section className="artist-names-container">
+        <section className="instructions-container">
+          <p className="instructions">Welcome to the Jazz Collaboration App! Choose two artists and see if they collaborated on any albums together! To begin, just click on an artist below or type a name into the search bar at the top of the page.</p>
+        </section>
+        <h3 className="artists-header">Artists:</h3>
+        { musicians }
+      </section>
     </section>
   )
 }
