@@ -1,14 +1,18 @@
 @import './_mixins';
 @import './_variables';
 
+.navbar {
+  height: 15%;
+}
+
 .header-section {
   background-color: $dark-blue;
   display: flex;
   justify-content: center;
+  height: 65%;
 }
 
 h1 {
-  
   font-size: 36px;
   margin: 1%;
   color: $white;
@@ -18,8 +22,19 @@ h1 {
   background-color: $gold;
   display: flex;
   justify-content: center;
+  height: 35%;
 }
 
 .search-bar {
   margin: 1%;
+  border-radius: 5px;
+  width: 70%;
+}
+
+.search-button {
+  margin: 1%;
+  background: $dark-blue;
+  border: none;
+  border-radius: 5px;
+  color: white;
 }

@@ -3,6 +3,7 @@ import { getSingleArtist } from '../apiCalls'
 import { useLocation, useParams } from 'react-router-dom'
 import { Errors } from '../Contexts/ErrorContextProvider'
 import ArtistAlbums from './ArtistAlbums'
+import '../Styles/Artist.scss'
 
 const Artist = () => {
   const [ artist, setArtist ] = useState({})
@@ -18,11 +19,13 @@ const Artist = () => {
   }, [])
 
   return (
-    <section>
-      <img src={artist.photo} alt={`Picture of ${artist.name}`}/>
-      <h2>{artist.name}</h2>
-      <p>{artist.instrument}</p>
-      {artist.albums && <ArtistAlbums albums={artist.albums}/>}
+    <section className="artist-page">
+      <section className="artist-container">
+        <img className="artist-image" src={artist.photo} alt={`Picture of ${artist.name}`}/>
+        <h2 className="artist-name">{artist.name}</h2>
+        <p className="instrument">Instrument: {artist.instrument}</p>
+        {artist.albums && <ArtistAlbums albums={artist.albums}/>}
+      </section>
     </section>
   )
 }
