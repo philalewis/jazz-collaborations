@@ -22,7 +22,7 @@ const Personnel = (props) => {
   const formatInstruments = () => {
     const instruments = props.instruments.split(', ')
     return instruments.map(instrument => {
-      <li>{instrument}</li>
+      return <li>{instrument}</li>
     })
   }
   
@@ -37,8 +37,8 @@ const Personnel = (props) => {
 
   return (
     <div className="personnel-container">
-      <div className="name-button-section">
-        <p>{props.name}</p>
+      <div className="name-and-button-section">
+        <p className="name">{props.name}</p>
         <button
           disabled={disabled}
           className="add-collaborator-button"
@@ -46,7 +46,7 @@ const Personnel = (props) => {
         >choose</button>
       </div>
       <div className="instruments-container">
-        <ul>{formatInstruments()}</ul>
+        <ul className="instruments-list">{formatInstruments()}</ul>
       </div>
     </div>
   )
