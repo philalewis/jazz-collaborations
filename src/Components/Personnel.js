@@ -7,7 +7,7 @@ const Personnel = (props) => {
 
   useEffect(() => {
     checkDisabled()
-  })
+  }, [collaborations])
 
   const addCollaborator = (event) => {
     event.preventDefault()
@@ -29,6 +29,8 @@ const Personnel = (props) => {
     if (collaborations.left.name === props.name ||
       collaborations.right.name === props.name) {
         setDisabled(true)
+      } else {
+        setDisabled(false)
       }
   }
 

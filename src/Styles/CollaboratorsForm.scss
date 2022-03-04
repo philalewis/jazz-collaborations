@@ -5,7 +5,7 @@
   display: flex;
   padding: 10px;
   width: 100%;
-  height: 10%;
+  height: 10rem;
   justify-content: space-around;
   align-items: center;
 }
@@ -13,6 +13,19 @@
 .middle-button {
   width: 6rem;
   margin: 4px;
+  font-size: 12px;
+}
+
+.collaborator-name-box {
+  height: 60%;
+}
+
+.remove-button-box {
+  height: 40%
+}
+
+.collaborator-name {
+  font-size: 18px;
 }
 
 .collaborator-left,
@@ -22,7 +35,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .remove-button {
@@ -30,5 +43,5 @@
   color: white;
   border: none;
   border-radius: 5px;
-  margin: 10% 0;
+  height: 100%;
 }
