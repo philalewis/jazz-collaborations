@@ -1,0 +1,47 @@
+@import './_mixins';
+@import './_variables';
+
+.collaborators-form {
+  display: flex;
+  padding: 10px;
+  width: 100%;
+  // height: 20vh;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.middle-button {
+  width: 100%;
+  // margin: 4px;
+  font-size: 12px;
+}
+
+.collaborator-name-box {
+  height: 60%;
+}
+
+.remove-button-box {
+  height: 40%
+}
+
+.collaborator-name {
+  font-size: 18px;
+}
+
+.collaborator-left,
+.collaborator-right {
+  height: 100%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.remove-button {
+  background: $dark-blue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  height: 100%;
+}
