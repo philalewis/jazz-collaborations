@@ -7,6 +7,7 @@ const CollaborationsForm = () => {
   const { collaborations, setCollaborations } = useContext(Collaborations)
 
   const middleButton = () => {
+    console.log(collaborations)
     if (collaborations.left.name && collaborations.right.name) {
       return (
         <Link to='/collaborations'>
@@ -16,13 +17,14 @@ const CollaborationsForm = () => {
           </button>
         </Link>
       )
-    } else return (
-      <button
-        className="disabled-collaborations-button middle-button"
-        disabled
-      >Select two musicians
-      </button>
-    )
+    } else {
+      return (
+        <button
+          className="disabled-collaborations-button middle-button"
+          disabled
+        >Select two musicians</button>
+      )
+    }
   }
 
   const handleClick = event => {
@@ -33,7 +35,8 @@ const CollaborationsForm = () => {
   return (
     <section className="collaborators-form">
       <div className="collaborator-left">
-        <p className="collaborator-name">{collaborations.left.name}</p>
+        {collaborations.left.name && 
+          <p className="collaborator-name">{collaborations.left.name}</p>}
         <button
           id='left'
           onClick={event => handleClick(event)}
@@ -42,7 +45,8 @@ const CollaborationsForm = () => {
       </div>
       { middleButton() }
       <div className="collaborator-right">
-        <p className="collaborator-name">{collaborations.right.name}</p>
+        {collaborations.right.name &&
+          <p className="collaborator-name">{collaborations.right.name}</p>}
         <button
           id='right'
           onClick={event => handleClick(event)}

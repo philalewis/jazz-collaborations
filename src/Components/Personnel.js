@@ -7,13 +7,14 @@ const Personnel = (props) => {
 
   useEffect(() => {
     checkDisabled()
-  }, [])
+  })
 
-  const addCollaborator = () => {
-    if (collaborations.left === {}) {
-      setCollaborations({...collaborations, left: props.name})
-    } else if (collaborations.right === {}) {
-      setCollaborations({...collaborations, right: props.name})
+  const addCollaborator = (event) => {
+    event.preventDefault()
+    if (!collaborations.left.name) {
+      setCollaborations({...collaborations, left: {name: props.name}})
+    } else if (!collaborations.right.name) {
+      setCollaborations({...collaborations, right: {name: props.name}})
     }
   }
 
@@ -38,8 +39,8 @@ const Personnel = (props) => {
       <button
         disabled={disabled}
         className="add-collaborator-button"
-        onClick={addCollaborator}
-      ></button>
+        onClick={event => addCollaborator(event)}
+      >choose</button>
     </div>
   )
 }
