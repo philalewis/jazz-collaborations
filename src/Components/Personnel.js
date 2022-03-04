@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { Collaborations } from '../Contexts/CollaborationsContextProvider'
+import '../Styles/Personnel.scss'
 
 const Personnel = (props) => {
   const [ disabled, setDisabled ] = useState(false)
@@ -36,13 +37,17 @@ const Personnel = (props) => {
 
   return (
     <div className="personnel-container">
-      <p>{props.name}</p>
-      <ul>{formatInstruments()}</ul>
-      <button
-        disabled={disabled}
-        className="add-collaborator-button"
-        onClick={event => addCollaborator(event)}
-      >choose</button>
+      <div className="name-button-section">
+        <p>{props.name}</p>
+        <button
+          disabled={disabled}
+          className="add-collaborator-button"
+          onClick={event => addCollaborator(event)}
+        >choose</button>
+      </div>
+      <div className="instruments-container">
+        <ul>{formatInstruments()}</ul>
+      </div>
     </div>
   )
 }
