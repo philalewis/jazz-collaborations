@@ -22,7 +22,7 @@ const Personnel = (props) => {
   const formatInstruments = () => {
     const instruments = props.instruments.split(', ')
     return instruments.map(instrument => {
-      return <li>{instrument}</li>
+      return <li key={instrument}>{instrument}</li>
     })
   }
   

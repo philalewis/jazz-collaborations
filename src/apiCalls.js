@@ -30,3 +30,14 @@ export const getAlbum = async (id) => {
     throw `${error.status} ${error.statusText}`
   }
 }
+
+export const getAlbumsByName = async (name) => {
+  const response = await fetch(`http://localhost:3000/api/v1/appearances/${name}`)
+
+  try {
+    const data = await response.json()
+    return data
+  } catch(error) {
+    throw new Error(error)
+  }
+}

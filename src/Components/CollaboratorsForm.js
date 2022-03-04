@@ -11,7 +11,7 @@ const CollaborationsForm = () => {
       return (
         <Link to='/collaborations'>
           <button
-            className="see-collaborations-button middle-button"
+            className="middle-button"
           >See Collaborations
           </button>
         </Link>
@@ -19,7 +19,7 @@ const CollaborationsForm = () => {
     } else {
       return (
         <button
-          className="disabled-collaborations-button middle-button"
+          className="middle-button"
           disabled
         >Select two musicians</button>
       )
@@ -46,7 +46,9 @@ const CollaborationsForm = () => {
           >remove</button>
         </div>
       </div>
-      { middleButton() }
+      <div className="middle-button-container">
+        { middleButton() }
+      </div>
       <div className="collaborator-right">
         <div className="collaborator-name-box">
           {collaborations.right.name &&

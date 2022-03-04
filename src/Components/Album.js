@@ -47,9 +47,6 @@ const Album = () => {
         instruments={musician.instrument}
         key={musician.name}
       />
-      // <article key={musician.name} className="musician-info">
-      //   <p>{musician.name} ({musician.instrument})</p>
-      // </article>
     )
   })
 
