@@ -11,7 +11,7 @@ const CollaborationsForm = () => {
       return (
         <Link to='/collaborations'>
           <button
-            className="middle-button"
+            className="see-collaborations-button middle-button"
           >See Collaborations
           </button>
         </Link>
@@ -31,6 +31,10 @@ const CollaborationsForm = () => {
     setCollaborations({...collaborations, [event.target.id]: {}})
   }
 
+  const checkIfDisabled = side => {
+    return !collaborations[side].name
+  }
+
   return (
     <section className="collaborators-form">
       <div className="collaborator-left">
@@ -41,6 +45,7 @@ const CollaborationsForm = () => {
         <div className="remove-button-box">
           <button
             id='left'
+            disabled={checkIfDisabled('left')}
             onClick={event => handleClick(event)}
             className="remove-button"
           >remove</button>
@@ -57,6 +62,7 @@ const CollaborationsForm = () => {
         <div className="remove-button-box">
           <button
             id='right'
+            disabled={checkIfDisabled('right')}
             onClick={event => handleClick(event)}
             className="remove-button"
           >remove</button>

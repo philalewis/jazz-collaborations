@@ -71,3 +71,23 @@
   justify-content: flex-start;
   margin-left: 5px;
 }
+
+@media screen and (min-width: 370px) {
+  .album-cover-container {
+    width: 115px;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .album-title {
+    font-size: 20px;
+  }
+  
+  .album-artist {
+    font-size: 16px;
+  }
+  
+  .release-year {
+    font-size: 12px;
+  }
+}
