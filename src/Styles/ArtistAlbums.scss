@@ -4,8 +4,8 @@
 .albums-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 10px;
+  margin: 10px 0;
+  overflow-y: auto;
 }
 
 .albums-header {
@@ -13,5 +13,5 @@
 }
 
 .album-link {
-  margin: 4px;
+  margin: 6px 0;
 }

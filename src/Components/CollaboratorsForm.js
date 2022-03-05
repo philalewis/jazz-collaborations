@@ -21,7 +21,7 @@ const CollaborationsForm = () => {
         <button
           className="middle-button"
           disabled
-        >Select two musicians</button>
+        >Select musicians</button>
       )
     }
   }

@@ -4,12 +4,15 @@ import { useLocation, useParams } from 'react-router-dom'
 import { Errors } from '../Contexts/ErrorContextProvider'
 import ArtistAlbums from './ArtistAlbums'
 import '../Styles/Artist.scss'
+import CollaborationsForm from './CollaboratorsForm'
+import { Collaborations } from '../Contexts/CollaborationsContextProvider'
 
 const Artist = () => {
   const [ artist, setArtist ] = useState({})
   const location = useLocation()
   const params = useParams()
   const { setErrorMessage } = useContext(Errors)
+  const { collaborations, setCollaborations } = useContext(Collaborations)
 
   useEffect(() => {
     const id = location.pathname.split('/')[2]
@@ -18,13 +21,42 @@ const Artist = () => {
     .catch(error => setErrorMessage(error))
   }, [])
 
+  const addCollaborator = (event) => {
+    event.preventDefault()
+    if (!collaborations.left.name) {
+      setCollaborations({...collaborations, left: {name: artist.name}})
+    } else if (!collaborations.right.name) {
+      setCollaborations({...collaborations, right: {name: artist.name}})
+    }
+  }
+
+  const disabled = (collaborations.left.name === artist.name ||
+    collaborations.right.name === artist.name)
+
   return (
     <section className="artist-page">
       <div className="artist-container">
-        <img className="artist-image" src={artist.photo} alt={`Picture of ${artist.name}`}/>
-        <h2 className="artist-name">{artist.name}</h2>
-        <p className="instrument">Instrument: {artist.instrument}</p>
-        {artist.albums && <ArtistAlbums albums={artist.albums}/>}
+        <div className="collaborator-form-container">
+          <CollaborationsForm />
+        </div>
+        <div className="artist-info-container">
+          <div className="artist-image-container">
+            <img className="artist-image"
+              src={artist.photo}
+              alt={`Picture of ${artist.name}`}
+            />
+          </div>
+          <div className="artist-details-container">
+            <h2 className="artist-name">{artist.name}</h2>
+            <p className="instrument">Instrument: {artist.instrument}</p>
+            <button
+              disabled={disabled}
+              className="add-collaborator-button"
+              onClick={event => addCollaborator(event)}
+            >choose</button>
+            {artist.albums && <ArtistAlbums albums={artist.albums}/>}
+          </div>
+        </div>
       </div>
     </section>
   )
