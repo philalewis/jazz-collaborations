@@ -8,6 +8,7 @@ import Home from './Components/Home'
 import ErrorsModal from './Components/ErrorsModal'
 import Artist from './Components/Artist'
 import Album from './Components/Album'
+import CollaborationsPage from './Components/CollaborationsPage'
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
             <Route exact path="/" element={<Home />} />
             <Route path="/artist/:id" element={<Artist />} />
             <Route path="/album/:id" element={<Album />} />
+            <Route exact path="/collaborations" element={<CollaborationsPage />} />
           </Routes>
         </CollaborationsProvider>
       </ErrorsProvider>

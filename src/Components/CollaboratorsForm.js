@@ -19,9 +19,9 @@ const CollaborationsForm = () => {
     } else {
       return (
         <button
-          className="disabled-collaborations-button middle-button"
+          className="middle-button"
           disabled
-        >Select two musicians</button>
+        >Select musicians</button>
       )
     }
   }
@@ -29,6 +29,10 @@ const CollaborationsForm = () => {
   const handleClick = event => {
     event.preventDefault()
     setCollaborations({...collaborations, [event.target.id]: {}})
+  }
+
+  const checkIfDisabled = side => {
+    return !collaborations[side].name
   }
 
   return (
@@ -41,12 +45,15 @@ const CollaborationsForm = () => {
         <div className="remove-button-box">
           <button
             id='left'
+            disabled={checkIfDisabled('left')}
             onClick={event => handleClick(event)}
             className="remove-button"
           >remove</button>
         </div>
       </div>
-      { middleButton() }
+      <div className="middle-button-container">
+        { middleButton() }
+      </div>
       <div className="collaborator-right">
         <div className="collaborator-name-box">
           {collaborations.right.name &&
@@ -55,6 +62,7 @@ const CollaborationsForm = () => {
         <div className="remove-button-box">
           <button
             id='right'
+            disabled={checkIfDisabled('right')}
             onClick={event => handleClick(event)}
             className="remove-button"
           >remove</button>
