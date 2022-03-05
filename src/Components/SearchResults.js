@@ -21,12 +21,36 @@ const SearchResults = () => {
       }))
       setAlbums(data[1])
     }).catch(error => setErrorMessage(error))
-  }, [])
+  }, [location])
 
-  const artistLinks = () => {
+  const artistCards = () => {
+    const path = `/artist/${name.id}`
     return artists.map(artist => {
       return (
-        <Link to=""></Link>
+        <div className="artist-name-container" key={artist.id}>
+          <Link to={path}>
+            <h3 className="artist-name">{artist.name}</h3>
+          </Link>
+          <button className="add-collaborator-button">choose</button>
+        </div>
+      )
+    })
+  }
+
+  const albumCards = () => {
+    return albums.map(album => {
+      return (
+        <div className="album-details" key={album.id}>
+          <img
+            src={album.cover}
+            alt={`Cover art for ${album.title}`}
+            className="album-cover"
+          />
+          <Link to={`/album/${album.id}`}>
+            <h3 className="album-title">{album.title}</h3>
+          </Link>
+          <p className="album-artist">{album.albumArtist}</p>
+        </div>
       )
     })
   }
@@ -36,8 +60,14 @@ const SearchResults = () => {
       <div className="search-reults-container">
         <section className="artist-results-container">
           <h2 className="artist-results-header">Artists</h2>
-          <div className="artists">
-
+          <div className="artist-results">
+            { artistCards() }
+          </div>
+        </section>
+        <section className="albums-results-container">
+          <h2 className="albums-results-header">Albums</h2>
+          <div className="ablums-results">
+            { albumCards() }
           </div>
         </section>
       </div>
