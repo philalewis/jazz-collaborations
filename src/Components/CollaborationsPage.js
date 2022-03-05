@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Collaborations } from '../Contexts/CollaborationsContextProvider'
 import { Errors } from '../Contexts/ErrorContextProvider'
 import { getAlbumsByName } from '../apiCalls'
@@ -9,6 +9,7 @@ const CollaborationsPage = () => {
   const { collaborations, setCollaborations } = useContext(Collaborations)
   const { setErrorMessage } = useContext(Errors)
   const [ albums, setAlbums ] = useState({})
+  const navigate = useNavigate()
 
   useEffect(() => {
     Promise.all([
@@ -42,6 +43,11 @@ const CollaborationsPage = () => {
       }) : <h2>There are no albums in the database with both of these musicians.</h2>
   }
 
+  const clearSelections = () => {
+    setCollaborations({left: {}, right: {}})
+    navigate('/')
+  }
+
   return (
     <section className="collaborations-page">
       <div className="collaborations-container">
@@ -58,6 +64,11 @@ const CollaborationsPage = () => {
         <ul className="album-list">
           { buildAlbumList() }
         </ul>
+        <button
+          onClick={clearSelections}
+          className="clear-selections-button"
+          >Clear selections and return home
+        </button>
       </div>
     </section>
   )
