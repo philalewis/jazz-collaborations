@@ -34,25 +34,22 @@ const CollaborationsPage = () => {
     return albums.length ?
       albums.map(album => {
         return (
-          <>
-            <Link 
-              to={`/album/${album.id}`}
-              key={album.id}><li>{album.title}</li>
-            </Link>
-          </>
+          <li key={album.id}>
+            <Link to={`/album/${album.id}`}>{album.title}</Link>
+          </li>
         )
       }) : <h2>There are no albums in the database with both of these musicians.</h2>
   }
 
   return (
     <section className="collaborations-page">
-      <section className="left-musician">
+      <section className="musician-names">
         <h2>{collaborations.left.name}</h2>
         <h2>{collaborations.right.name}</h2>
+      </section>
         <ul>
           { buildAlbumList() }
         </ul>
-      </section>
     </section>
   )
 }
