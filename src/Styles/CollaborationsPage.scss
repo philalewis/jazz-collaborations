@@ -6,7 +6,9 @@
 }
 
 .collaborations-container {
-  @include mainContainer()
+  @include mainContainer();
+  display: flex;
+  justify-content: space-between;
 }
 
 .collaborations-header {
@@ -41,4 +43,20 @@
 
 .album-list {
   list-style-type: circle;
+}
+
+.clear-selections-button {
+  width: 100%;
+  background-color: $dark-blue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.top-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

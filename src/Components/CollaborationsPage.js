@@ -25,6 +25,7 @@ const CollaborationsPage = () => {
   const findCollaborations = (setOne, setTwo) => {
     const collabs = []
     const setTwoIds = setTwo.map(album => album.id)
+
     setOne.forEach(album => {
       return setTwoIds.includes(album.id) ? collabs.push(album) : null
     })
@@ -51,23 +52,25 @@ const CollaborationsPage = () => {
   return (
     <section className="collaborations-page">
       <div className="collaborations-container">
-        <h2 className="collaborations-header">Collaborations</h2>
-        <section className="musician-headers">
-          <h3>Musician: </h3>
-          <h3>Musician: </h3>
-        </section>
-        <section className="musician-names">
-          <h3 className="musician-name">{collaborations.left.name}</h3>
-          <h3 className="musician-name">{collaborations.right.name}</h3>
-        </section>
-        <h2 className="shared-albums-header">Albums</h2>
-        <ul className="album-list">
-          { buildAlbumList() }
-        </ul>
+        <div className="top-section">
+          <h2 className="collaborations-header">Collaborations</h2>
+          <section className="musician-headers">
+            <h3>Musician: </h3>
+            <h3>Musician: </h3>
+          </section>
+          <section className="musician-names">
+            <h3 className="musician-name">{collaborations.left.name}</h3>
+            <h3 className="musician-name">{collaborations.right.name}</h3>
+          </section>
+          <h2 className="shared-albums-header">Albums</h2>
+          <ul className="album-list">
+            { buildAlbumList() }
+          </ul>
+        </div>
         <button
           onClick={clearSelections}
           className="clear-selections-button"
-          >Clear selections and return home
+          >CLEAR SELECTIONS AND RETURN HOME
         </button>
       </div>
     </section>
