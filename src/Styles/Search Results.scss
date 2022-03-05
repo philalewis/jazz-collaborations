@@ -1,0 +1,10 @@
+@import './_mixins';
+@import './_variables';
+
+.search-results-page {
+  @include mainBackground();
+}
+
+.search-reults-container {
+  @include mainContainer();
+}
