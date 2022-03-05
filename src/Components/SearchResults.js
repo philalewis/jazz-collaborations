@@ -2,12 +2,14 @@ import React, { useState, useEffect, useContext } from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import { getArtistNames, getAlbumsByName } from '../apiCalls'
 import { Errors } from '../Contexts/ErrorContextProvider'
+import { Collaborations } from '../Contexts/CollaborationsContextProvider'
 
 const SearchResults = () => {
   const [ artists, setArtists ] = useState([])
   const [ albums, setAlbums ] = useState([])
   const location = useLocation()
   const { setErrorMessage } = useContext(Errors)
+  const { collaborations, setCollaborations } = useContext(Collaborations)
 
   const name = location.search.slice(1)
 
@@ -24,8 +26,8 @@ const SearchResults = () => {
   }, [location])
 
   const artistCards = () => {
-    const path = `/artist/${name.id}`
-    return artists.map(artist => {
+    artists.map(artist => {
+      const path = `/artist/${artist.id}`
       return (
         <div className="artist-name-container" key={artist.id}>
           <Link to={path}>
@@ -35,6 +37,10 @@ const SearchResults = () => {
         </div>
       )
     })
+  }
+
+  const addSearchResultsToCollaborators = () => {
+    setCollaborations(name.split('%20').join(' '))
   }
 
   const albumCards = () => {
@@ -58,6 +64,13 @@ const SearchResults = () => {
   return (
     <section className="search-results-page">
       <div className="search-reults-container">
+        <div className="add-search-results">
+          <p>Add "{name.split('%20').join(' ')}" to collaborators?</p>
+          <button
+            className="add-results-string"
+            onClick={addSearchResultsToCollaborators}
+          >yes</button>
+        </div>
         <section className="artist-results-container">
           <h2 className="artist-results-header">Artists</h2>
           <div className="artist-results">
