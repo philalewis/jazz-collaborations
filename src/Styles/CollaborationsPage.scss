@@ -1,0 +1,44 @@
+@import './_mixins';
+@import './_variables';
+
+.collaborations-page {
+  @include mainBackground()
+}
+
+.collaborations-container {
+  @include mainContainer()
+}
+
+.collaborations-header {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.musician-names,
+.musician-headers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.musician-headers {
+  font-size: 16px;
+  text-decoration: underline;
+  margin-bottom: 5px;
+}
+
+.musician-name {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.shared-albums-header {
+  font-size: 20px;
+  margin: 20px 0 10px 0;
+  text-decoration: underline;
+}
+
+.album-list {
+  list-style-type: circle;
+}

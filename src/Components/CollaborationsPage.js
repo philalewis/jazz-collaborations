@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom'
 import { Collaborations } from '../Contexts/CollaborationsContextProvider'
 import { Errors } from '../Contexts/ErrorContextProvider'
 import { getAlbumsByName } from '../apiCalls'
+import '../Styles/CollaborationsPage.scss'
 
 const CollaborationsPage = () => {
   const { collaborations, setCollaborations } = useContext(Collaborations)
-  const [ albums, setAlbums ] = useState({})
   const { setErrorMessage } = useContext(Errors)
+  const [ albums, setAlbums ] = useState({})
 
   useEffect(() => {
     Promise.all([
@@ -43,13 +44,21 @@ const CollaborationsPage = () => {
 
   return (
     <section className="collaborations-page">
-      <section className="musician-names">
-        <h2>{collaborations.left.name}</h2>
-        <h2>{collaborations.right.name}</h2>
-      </section>
-        <ul>
+      <div className="collaborations-container">
+        <h2 className="collaborations-header">Collaborations</h2>
+        <section className="musician-headers">
+          <h3>Musician: </h3>
+          <h3>Musician: </h3>
+        </section>
+        <section className="musician-names">
+          <h3 className="musician-name">{collaborations.left.name}</h3>
+          <h3 className="musician-name">{collaborations.right.name}</h3>
+        </section>
+        <h2 className="shared-albums-header">Albums</h2>
+        <ul className="album-list">
           { buildAlbumList() }
         </ul>
+      </div>
     </section>
   )
 }
