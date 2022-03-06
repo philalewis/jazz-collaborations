@@ -1,37 +1,45 @@
 [
   {
-    "id": 103,
+    "id": 101,
     "albumArtist": "Miles Davis",
-    "title": "Kind of Blue",
-    "releaseYear": 1959,
-    "cover": "https://upload.wikimedia.org/wikipedia/en/9/9c/MilesDavisKindofBlue.jpg",
+    "title": "Birth of the Cool",
+    "releaseYear": 1957,
+    "cover": "https://upload.wikimedia.org/wikipedia/en/a/a8/Birth_of_the_Cool.jpg",
     "musicians": [
       {
         "name": "Miles Davis",
         "instrument": "trumpet"
       },
       {
-        "name": "Julian \"Cannonball\" Adderley",
+        "name": "Kai Winding",
+        "instrument": "trombone"
+      },
+      {
+        "name": "Junior Collins",
+        "instrument": "french horn"
+      },
+      {
+        "name": "Bill Barber",
+        "instrument": "tuba"
+      },
+      {
+        "name": "Lee Konitz",
         "instrument": "alto saxophone"
       },
       {
-        "name": "John Coltrane",
-        "instrument": "tenor saxophone"
+        "name": "Gerry Milligan",
+        "instrument": "baritone saxophone"
       },
       {
-        "name": "Bill Evans",
+        "name": "Al Haig",
         "instrument": "piano"
       },
       {
-        "name": "Wynton Kelley",
-        "instrument": "piano"
-        },
-      {
-        "name": "Paul Chambers",
-        "instrument": "double bass"
+        "name": "Joe Shulman",
+        "instrument": "bass"
       },
       {
-        "name": "Jimmy Cobb",
+        "name": "Max Roach",
         "instrument": "drums"
       }
     ]

@@ -49,6 +49,10 @@ describe('Search Results user flow', () => {
       .then((json) => {
         cy.intercept('GET', 'http://localhost:3000/api/v1/musicians', json)
       })
+    cy.fixture('milesDavisArtistPage.json').as('milesDavisArtistPage')
+      .then((json) => {
+        cy.intercept('GET', 'http://localhost:3000/api/v1/musicians/1', json)
+      })
     cy.visit('http://localhost:3001/')
       .get('.search-bar')
       .type('miles davis{enter}')
@@ -73,6 +77,18 @@ describe('Search Results user flow', () => {
     cy.fixture('musiciansData.json').as('musiciansData')
       .then((json) => {
         cy.intercept('GET', 'http://localhost:3000/api/v1/musicians', json)
+      })
+    cy.fixture('milesDavisArtistPage.json').as('milesDavisArtistPage')
+      .then((json) => {
+        cy.intercept('GET', 'http://localhost:3000/api/v1/musicians/1', json)
+      })
+    cy.fixture('birthOfTheCool.json').as('birthOfTheCool')
+      .then((json) => {
+        cy.intercept('GET', 'http://localhost:3000/api/v1/album/101', json)
+      })
+    cy.fixture('milesDavisSearchData.json').as('milesDavisSearchData')
+      .then((json) => {
+        cy.intercept('GET', 'http://localhost:3000/api/v1/appearances/miles%20davis', json)
       })
     cy.visit('http://localhost:3001/')
       .get('.search-bar')
