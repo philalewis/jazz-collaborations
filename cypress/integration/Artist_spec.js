@@ -11,6 +11,4 @@ describe('artist page', () => {
       .contains('Expression').click()
       .url().should('eq', 'http://localhost:3001/album/206')
   })
-
-  // it('should ')
 })

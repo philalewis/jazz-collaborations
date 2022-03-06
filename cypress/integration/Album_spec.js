@@ -1,0 +1,16 @@
+describe('Album page', () => {
+  it('should have album details and a list of musicians that can be added to the collaboration form', () => {
+    cy.visit('http://localhost:3001/album/205')
+      .get('.collaborators-form')
+      .get('.album-info-container')
+      .get('.album-details-container')
+      .contains('A Love Supreme')
+      .get('.album-artist')
+      .contains('John Coltrane')
+      .get('.release-year')
+      .contains('Released: 1965')
+      .get('.name-and-button-section')
+      .contains('Jimmy Garrison')
+      .find('.add-collaborator-button').click()
+  })
+})
