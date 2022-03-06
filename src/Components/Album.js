@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { Errors } from '../Contexts/ErrorContextProvider'
 import { getAlbum } from '../apiCalls'
 import '../Styles/Album.scss'

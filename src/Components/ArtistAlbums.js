@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import '../Styles/ArtistAlbums.scss'
 
 const ArtistAlbums = (props) => {
-
   const albumList = () => {
     const albums = props.albums.sort((a, b) => {
       return a.releaseYear - b.releaseYear

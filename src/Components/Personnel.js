@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import { Collaborations } from '../Contexts/CollaborationsContextProvider'
 import '../Styles/Personnel.scss'
 import { Errors } from '../Contexts/ErrorContextProvider'
+import PropTypes from 'prop-types'
 
 const Personnel = (props) => {
   const [ disabled, setDisabled ] = useState(false)
@@ -57,3 +58,8 @@ const Personnel = (props) => {
 }
 
 export default Personnel
+
+Personnel.propTypes = {
+  name: PropTypes.string.isRequired,
+  instruments: PropTypes.string.isRequired
+}
