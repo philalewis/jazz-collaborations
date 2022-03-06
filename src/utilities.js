@@ -16,3 +16,13 @@ export const findCollaborations = (setOne, setTwo) => {
 
   return collabs
 }
+
+export const filterArtists = (artists, url) => {
+  return artists.filter(artist => {
+    return (artist.name.toLowerCase().includes(url.split('%20').join(' ').toLowerCase()))
+  })
+}
+
+export const getNameFromURL = (url) => {
+  return url.search.slice(1)
+}

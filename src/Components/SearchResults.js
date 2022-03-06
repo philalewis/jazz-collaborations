@@ -4,6 +4,7 @@ import { getArtistNames, getAlbumsByName } from '../apiCalls'
 import { Errors } from '../Contexts/ErrorContextProvider'
 import { Collaborations } from '../Contexts/CollaborationsContextProvider'
 import '../Styles/SearchResults.scss'
+import { filterArtists, getNameFromURL } from '../utilities'
 
 const SearchResults = () => {
   const [ artists, setArtists ] = useState([])
@@ -12,16 +13,14 @@ const SearchResults = () => {
   const { setErrorMessage } = useContext(Errors)
   const { collaborations, setCollaborations } = useContext(Collaborations)
 
-  const name = location.search.slice(1)
+  const name = getNameFromURL(location)
 
   useEffect(() => {
     Promise.all([
       getArtistNames(),
       getAlbumsByName(name)
     ]).then(data => {
-      setArtists(data[0].names.filter(artist => {
-        return artist.name.toLowerCase().includes(name.split('%20').join(' ').toLowerCase())
-      }))
+      setArtists(filterArtists(data[0].names, name))
       setAlbums(data[1])
     }).catch(error => setErrorMessage(error))
   }, [location])
@@ -84,7 +83,6 @@ const SearchResults = () => {
   }
 
   const addToCollaborators = () => {
-    console.log(collaboratorsFull())
     return !collaboratorsFull() ?
       <p className="ask-to-add-string">
         Add "{name.split('%20').join(' ')}" to collaborators?</p> :
