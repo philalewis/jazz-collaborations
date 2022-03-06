@@ -5,6 +5,7 @@ import { Errors } from '../Contexts/ErrorContextProvider'
 import { Collaborations } from '../Contexts/CollaborationsContextProvider'
 import '../Styles/SearchResults.scss'
 import { filterArtists, getNameFromURL } from '../utilities'
+import AddResults from './AddResults'
 
 const SearchResults = () => {
   const [ artists, setArtists ] = useState([])
@@ -39,9 +40,9 @@ const SearchResults = () => {
     }
   }
   
-  const addSearchResultsToCollaborators = () => {
-    addCollaborator(name.split('%20').join(' '))
-  }
+  // const addSearchResultsToCollaborators = () => {
+  //   addCollaborator(name.split('%20').join(' '))
+  // }
 
   const artistCards = () => {
     return artists.map(artist => {
@@ -82,32 +83,14 @@ const SearchResults = () => {
     })
   }
 
-  const addToCollaborators = () => {
-    return !collaboratorsFull() ?
-      <p className="ask-to-add-string">
-        Add "{name.split('%20').join(' ')}" to collaborators?</p> :
-      <p className="ask-to-add-string">
-        You must remove a collaborator before adding this selection.</p>
-  }
-
-  let collaboratorsFull = () => {
-    return collaborations.left.name && collaborations.right.name ? true : false
-  }
-
   return (
     <section className="search-results-page">
       <div className="search-reults-container">
         <section className="add-search-results">
-          <div className="ask-to-add-container">
-            { addToCollaborators() }
-          </div>
-          <button
-            disabled={collaboratorsFull()}
-            className="add-results-button"
-            onClick={addSearchResultsToCollaborators}
-          >choose</button>
+          <AddResults addCollaborator={addCollaborator}/>
         </section>
         <section className="artist-results-container">
+          <AlbumsResults />
           <h2 className="artist-results-header">Artists</h2>
           <div className="artist-results">
             { artistCards() }
