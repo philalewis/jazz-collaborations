@@ -1,0 +1,39 @@
+[
+  {
+    "id": 103,
+    "albumArtist": "Miles Davis",
+    "title": "Kind of Blue",
+    "releaseYear": 1959,
+    "cover": "https://upload.wikimedia.org/wikipedia/en/9/9c/MilesDavisKindofBlue.jpg",
+    "musicians": [
+      {
+        "name": "Miles Davis",
+        "instrument": "trumpet"
+      },
+      {
+        "name": "Julian \"Cannonball\" Adderley",
+        "instrument": "alto saxophone"
+      },
+      {
+        "name": "John Coltrane",
+        "instrument": "tenor saxophone"
+      },
+      {
+        "name": "Bill Evans",
+        "instrument": "piano"
+      },
+      {
+        "name": "Wynton Kelley",
+        "instrument": "piano"
+        },
+      {
+        "name": "Paul Chambers",
+        "instrument": "double bass"
+      },
+      {
+        "name": "Jimmy Cobb",
+        "instrument": "drums"
+      }
+    ]
+  }
+]
