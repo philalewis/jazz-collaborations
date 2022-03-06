@@ -4,6 +4,7 @@ import { Collaborations } from '../Contexts/CollaborationsContextProvider'
 import { Errors } from '../Contexts/ErrorContextProvider'
 import { getAlbumsByName } from '../apiCalls'
 import '../Styles/CollaborationsPage.scss'
+import { sortAlbums, findCollaborations } from '../utilities'
 
 const CollaborationsPage = () => {
   const { collaborations, setCollaborations } = useContext(Collaborations)
@@ -17,21 +18,10 @@ const CollaborationsPage = () => {
       getAlbumsByName(collaborations.right.name)
     ])
     .then(data => {
-      setAlbums(findCollaborations(data[0], data[1]))
+      setAlbums(sortAlbums(findCollaborations(data[0], data[1])))
     })
     .catch(error => setErrorMessage(error))
   }, [])
-
-  const findCollaborations = (setOne, setTwo) => {
-    const collabs = []
-    const setTwoIds = setTwo.map(album => album.id)
-
-    setOne.forEach(album => {
-      return setTwoIds.includes(album.id) ? collabs.push(album) : null
-    })
-
-    return collabs
-  }
 
   const buildAlbumList = () => {
     return albums.length ?

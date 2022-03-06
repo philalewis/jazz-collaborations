@@ -1,21 +1,21 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { getSingleArtist } from '../apiCalls'
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { Errors } from '../Contexts/ErrorContextProvider'
 import ArtistAlbums from './ArtistAlbums'
 import '../Styles/Artist.scss'
 import CollaborationsForm from './CollaboratorsForm'
 import { Collaborations } from '../Contexts/CollaborationsContextProvider'
+import { getAlbumIdFromURL } from '../utilities'
 
 const Artist = () => {
   const [ artist, setArtist ] = useState({})
   const location = useLocation()
-  const params = useParams()
   const { setErrorMessage } = useContext(Errors)
   const { collaborations, setCollaborations } = useContext(Collaborations)
 
   useEffect(() => {
-    const id = location.pathname.split('/')[2]
+    const id = getAlbumIdFromURL(location)
     getSingleArtist(id)
     .then(data => setArtist(data))
     .catch(error => setErrorMessage(error))
