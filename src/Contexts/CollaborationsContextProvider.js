@@ -5,8 +5,7 @@ export const Collaborations = createContext()
 export const CollaborationsProvider = ({ children }) => {
 
     const [ collaborations, setCollaborations ] = useState({
-      left: {name: 'Miles Davis'},
-      // right: {name: 'Charlie Parker'}
+      left: {},
       right: {}
     })
 

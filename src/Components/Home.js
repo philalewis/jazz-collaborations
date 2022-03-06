@@ -14,7 +14,9 @@ const Home = () => {
     .then(data => {
       setNames(data.names)
     })
-    .catch(error => setErrorMessage(error))
+    .catch(error => {
+      setErrorMessage(error)
+    })
   }, [])
 
   const musicians = names.map(name => {
