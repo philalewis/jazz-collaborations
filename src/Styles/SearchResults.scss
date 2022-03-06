@@ -47,7 +47,7 @@
 }
 
 .artist-results-container {
-  height: 20%;
+  height: 15%;
   width: 100%;
 }
 
@@ -78,7 +78,7 @@
 }
 
 .albums-results-container {
-  height: 65%;
+  height: 50%;
   width: 100%;
 }
 
@@ -129,4 +129,9 @@
   border: none;
   border-radius: 5px;
   padding: 5px;
+}
+
+.collaborators-form-container {
+  height: 20%;
+  width: 100%;
 }
