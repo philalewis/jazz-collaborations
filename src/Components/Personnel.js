@@ -1,10 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { Collaborations } from '../Contexts/CollaborationsContextProvider'
 import '../Styles/Personnel.scss'
+import { Errors } from '../Contexts/ErrorContextProvider'
 
 const Personnel = (props) => {
   const [ disabled, setDisabled ] = useState(false)
   const { collaborations, setCollaborations } = useContext(Collaborations)
+  const { setErrorMessage } = useContext(Errors)
 
   useEffect(() => {
     checkDisabled()
@@ -16,6 +18,8 @@ const Personnel = (props) => {
       setCollaborations({...collaborations, left: {name: props.name}})
     } else if (!collaborations.right.name) {
       setCollaborations({...collaborations, right: {name: props.name}})
+    } else {
+      setErrorMessage('There are already two musicians selected. Please remove one of the choices first.')
     }
   }
 

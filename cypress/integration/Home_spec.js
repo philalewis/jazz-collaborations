@@ -1,5 +1,5 @@
 describe('Home page and search results', () => {
-  it.only('should render the navbar with a search bar that navigates to a results page', () => {
+  it('should render the navbar with a search bar that navigates to a results page', () => {
     cy.visit('http://localhost:3001/')
       .get('nav')
       .get('h1')
@@ -19,11 +19,12 @@ describe('Home page and search results', () => {
       .contains('John Coltrane')
   })
 
-  it('should render instructions and a list of musician links', () => {
+  it('should render instructions and a list of musician links that navigate to artist pages', () => {
     cy.visit('http://localhost:3001/')
       .get('.instructions')
       .get('.artist-link')
       .contains('John Coltrane').click()
+      
   })
 
   it('should ')

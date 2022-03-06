@@ -27,6 +27,8 @@ const Artist = () => {
       setCollaborations({...collaborations, left: {name: artist.name}})
     } else if (!collaborations.right.name) {
       setCollaborations({...collaborations, right: {name: artist.name}})
+    } else {
+      setErrorMessage('There are already two musicians selected. Please remove one of the choices first.')
     }
   }
 
