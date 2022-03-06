@@ -20,7 +20,7 @@ const SearchResults = () => {
       getAlbumsByName(name)
     ]).then(data => {
       setArtists(data[0].names.filter(artist => {
-        return name.split('%20').join(' ').toLowerCase().includes(artist.name.toLowerCase())
+        return artist.name.toLowerCase().includes(name.split('%20').join(' ').toLowerCase())
       }))
       setAlbums(data[1])
     }).catch(error => setErrorMessage(error))
