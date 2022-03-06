@@ -1,0 +1,47 @@
+[
+  {
+    "id": 101,
+    "albumArtist": "Miles Davis",
+    "title": "Birth of the Cool",
+    "releaseYear": 1957,
+    "cover": "https://upload.wikimedia.org/wikipedia/en/a/a8/Birth_of_the_Cool.jpg",
+    "musicians": [
+      {
+        "name": "Miles Davis",
+        "instrument": "trumpet"
+      },
+      {
+        "name": "Kai Winding",
+        "instrument": "trombone"
+      },
+      {
+        "name": "Junior Collins",
+        "instrument": "french horn"
+      },
+      {
+        "name": "Bill Barber",
+        "instrument": "tuba"
+      },
+      {
+        "name": "Lee Konitz",
+        "instrument": "alto saxophone"
+      },
+      {
+        "name": "Gerry Milligan",
+        "instrument": "baritone saxophone"
+      },
+      {
+        "name": "Al Haig",
+        "instrument": "piano"
+      },
+      {
+        "name": "Joe Shulman",
+        "instrument": "bass"
+      },
+      {
+        "name": "Max Roach",
+        "instrument": "drums"
+      }
+    ]
+  }
+]

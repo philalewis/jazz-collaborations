@@ -1,5 +1,14 @@
 describe('Home page and search results', () => {
+  
   it('should render the navbar with a search bar that navigates to a results page', () => {
+    cy.fixture('musiciansData.json').as('musiciansData')
+      .then((json) => {
+        cy.intercept('GET', 'http://localhost:3000/api/v1/musicians', json)
+      })
+    cy.fixture('coltraneSearchData.json').as('coltraneSearchData')
+      .then((json) => {
+        cy.intercept('GET', 'http://localhost:3000/api/v1/appearances/John%20Coltrane', json)
+      })
     cy.visit('http://localhost:3001/')
       .get('nav')
       .get('h1')
@@ -21,6 +30,14 @@ describe('Home page and search results', () => {
   })
 
   it('should render instructions, a list of musician links that navigate to artist pages, and a navigable header that navigates back home', () => {
+    cy.fixture('musiciansData.json').as('musiciansData')
+      .then((json) => {
+        cy.intercept('GET', 'http://localhost:3000/api/v1/musicians', json)
+      })
+    cy.fixture('coltraneArtistPage.json').as('coltraneArtistPage')
+      .then((json) => {
+        cy.intercept('GET', 'http://localhost:3000/api/v1/musicians/2', json)
+      })
     cy.visit('http://localhost:3001/')
       .get('.instructions')
       .get('.artist-link')

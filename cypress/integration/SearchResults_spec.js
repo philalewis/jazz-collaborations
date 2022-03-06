@@ -1,5 +1,25 @@
 describe('Search Results user flow', () => {
   it('should navigate to a search results page when searched from anywhere in the app', () => {
+    cy.fixture('musiciansData.json').as('musiciansData')
+      .then((json) => {
+        cy.intercept('GET', 'http://localhost:3000/api/v1/musicians', json)
+      })
+    cy.fixture('milesDavisSearchData.json').as('milesDavisSearchData')
+      .then((json) => {
+        cy.intercept('GET', 'http://localhost:3000/api/v1/appearances/miles%20davis', json)
+      })
+    cy.fixture('coltraneSearchData.json').as('coltraneSearchData')
+      .then((json) => {
+        cy.intercept('GET', 'http://localhost:3000/api/v1/appearances/John%20Coltrane', json)
+      })
+    cy.fixture('aLoveSupreme.json').as('aLoveSupremeData')
+      .then((json) => {
+        cy.intercept('GET', 'http://localhost:3000/api/v1/album/205', json)
+      })
+    cy.fixture('coltraneArtistPage.json').as('coltraneArtistPage')
+      .then((json) => {
+        cy.intercept('GET', 'http://localhost:3000/api/v1/musicians/2', json)
+      })
     cy.visit('http://localhost:3001/')
       .get('.search-bar')
       .type('miles davis{enter}')
@@ -8,14 +28,14 @@ describe('Search Results user flow', () => {
       .get('.search-bar')
       .type('miles davis{enter}')
       .url().should('eq', 'http://localhost:3001/search?miles%20davis')
-      .visit('http://localhost:3001/album/201')
+      .visit('http://localhost:3001/album/205')
       .get('.search-bar')
       .type('miles davis{enter}')
       .url().should('eq', 'http://localhost:3001/search?miles%20davis')
       .get('.search-bar')
       .type('john coltrane{enter}')
       .url().should('eq', 'http://localhost:3001/search?john%20coltrane')
-      .visit('http://localhost:3001/album/201')
+      .visit('http://localhost:3001/album/205')
       .get('.add-collaborator-button').eq(0).click()
       .get('.add-collaborator-button').eq(1).click()
       .get('.middle-button').click()
@@ -25,6 +45,14 @@ describe('Search Results user flow', () => {
   })
 
   it('should be able to add the search parameters to the collaborators form unless two musicians are already selected', () => {
+    cy.fixture('musiciansData.json').as('musiciansData')
+      .then((json) => {
+        cy.intercept('GET', 'http://localhost:3000/api/v1/musicians', json)
+      })
+    cy.fixture('milesDavisArtistPage.json').as('milesDavisArtistPage')
+      .then((json) => {
+        cy.intercept('GET', 'http://localhost:3000/api/v1/musicians/1', json)
+      })
     cy.visit('http://localhost:3001/')
       .get('.search-bar')
       .type('miles davis{enter}')
@@ -46,6 +74,22 @@ describe('Search Results user flow', () => {
   })
 
   it('should display search results with navigable links to album and artist pages', () => {
+    cy.fixture('musiciansData.json').as('musiciansData')
+      .then((json) => {
+        cy.intercept('GET', 'http://localhost:3000/api/v1/musicians', json)
+      })
+    cy.fixture('milesDavisArtistPage.json').as('milesDavisArtistPage')
+      .then((json) => {
+        cy.intercept('GET', 'http://localhost:3000/api/v1/musicians/1', json)
+      })
+    cy.fixture('birthOfTheCool.json').as('birthOfTheCool')
+      .then((json) => {
+        cy.intercept('GET', 'http://localhost:3000/api/v1/album/101', json)
+      })
+    cy.fixture('milesDavisSearchData.json').as('milesDavisSearchData')
+      .then((json) => {
+        cy.intercept('GET', 'http://localhost:3000/api/v1/appearances/miles%20davis', json)
+      })
     cy.visit('http://localhost:3001/')
       .get('.search-bar')
       .type('miles davis{enter}')
