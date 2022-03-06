@@ -1,5 +1,45 @@
 describe('Home page and search results', () => {
+  
   it('should render the navbar with a search bar that navigates to a results page', () => {
+    cy.intercept('GET', 'http://localhost:3000/api/v1/musicians', {
+      "names": [
+        {
+          "name": "Miles Davis",
+          "id": "1"
+        },
+        {
+          "name": "John Coltrane",
+          "id": "2"
+        }
+      ]
+    })
+    cy.intercept('GET', 'http://localhost:3000/api/v1/appearances/John%20Coltrane', [
+      {
+        "id": 205,
+        "albumArtist": "John Coltrane",
+        "title": "A Love Supreme",
+        "releaseYear": 1965,
+        "cover": "https://upload.wikimedia.org/wikipedia/en/9/9a/John_Coltrane_-_A_Love_Supreme.jpg",
+        "musicians": [
+          {
+            "name": "John Coltrane",
+            "instrument": "soprano saxophone, tenor saxophone"
+          },
+          {
+            "name": "Jimmy Garrison",
+            "instrument": "double bass"
+          },
+          {
+            "name": "Elvin Jones",
+            "instrument": "drums, gong, timpani"
+          },
+          {
+            "name": "McCoy Tyner",
+            "instrument": "piano"
+          }
+        ]
+      }
+    ])
     cy.visit('http://localhost:3001/')
       .get('nav')
       .get('h1')
