@@ -6,7 +6,8 @@ export const CollaborationsProvider = ({ children }) => {
 
     const [ collaborations, setCollaborations ] = useState({
       left: {name: 'Miles Davis'},
-      right: {name: 'Charlie Parker'}
+      // right: {name: 'Charlie Parker'}
+      right: {}
     })
 
     return(

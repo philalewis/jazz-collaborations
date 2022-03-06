@@ -1,0 +1,114 @@
+@import './_mixins';
+@import './_variables';
+
+.search-results-page {
+  @include mainBackground();
+}
+
+.search-reults-container {
+  @include mainContainer();
+}
+
+.add-search-results {
+  height: 15%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.add-results-button {
+  background-color: $dark-blue;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  height: 30px;
+}
+
+.ask-to-add-container {
+  display: flex;
+  align-items: center;
+}
+
+.ask-to-add-string {
+  margin-right: 20px;
+}
+
+.add-results-button:disabled {
+  background-color: $gray;
+}
+
+.add-results-button:disabled:hover {
+  cursor: auto;
+}
+
+.add-results-button:hover {
+  cursor: pointer;
+}
+
+.artist-results-container {
+  height: 20%;
+  width: 100%;
+}
+
+.artist-results-header,
+.albums-results-header {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 5px 0;
+  width: 100%;
+  border-bottom: 2px solid $dark-blue;
+}
+
+.artist-name {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.artist-results {
+  display: flex;
+  flex-direction: column;
+}
+
+.artist-name-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.albums-results-container {
+  height: 65%;
+  width: 100%;
+}
+
+.album-results {
+  display: flex;
+  flex-direction: column;
+}
+
+.album-details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.album-details-cover {
+  width: 30%;
+}
+
+.album-details-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  width: 70%;
+}
+
+.add-collaborator-btn {
+  background-color: $dark-blue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}

@@ -3,6 +3,7 @@ import { useLocation, Link } from 'react-router-dom'
 import { getArtistNames, getAlbumsByName } from '../apiCalls'
 import { Errors } from '../Contexts/ErrorContextProvider'
 import { Collaborations } from '../Contexts/CollaborationsContextProvider'
+import '../Styles/SearchResults.scss'
 
 const SearchResults = () => {
   const [ artists, setArtists ] = useState([])
@@ -25,52 +26,87 @@ const SearchResults = () => {
     }).catch(error => setErrorMessage(error))
   }, [location])
 
+  const handleClick = name => {
+    addCollaborator(name)
+  }
+
+  const addCollaborator = name => {
+    if (!collaborations.left.name) {
+      setCollaborations({...collaborations, left: {name: name}})
+    } else if (!collaborations.right.name) {
+      setCollaborations({...collaborations, right: {name: name}})
+    }
+  }
+  
+  const addSearchResultsToCollaborators = () => {
+    addCollaborator(name.split('%20').join(' '))
+  }
+
   const artistCards = () => {
-    artists.map(artist => {
+    return artists.map(artist => {
       const path = `/artist/${artist.id}`
       return (
         <div className="artist-name-container" key={artist.id}>
           <Link to={path}>
             <h3 className="artist-name">{artist.name}</h3>
           </Link>
-          <button className="add-collaborator-button">choose</button>
+          <button
+            className="add-collaborator-btn"
+            onClick={() => handleClick(artist.name)}
+          >choose</button>
         </div>
       )
     })
-  }
-
-  const addSearchResultsToCollaborators = () => {
-    setCollaborations(name.split('%20').join(' '))
   }
 
   const albumCards = () => {
     return albums.map(album => {
       return (
         <div className="album-details" key={album.id}>
-          <img
-            src={album.cover}
-            alt={`Cover art for ${album.title}`}
-            className="album-cover"
-          />
-          <Link to={`/album/${album.id}`}>
-            <h3 className="album-title">{album.title}</h3>
-          </Link>
-          <p className="album-artist">{album.albumArtist}</p>
+          <div className="album-details-cover">
+            <img
+              src={album.cover}
+              alt={`Cover art for ${album.title}`}
+              className="album-cover"
+            />
+          </div>
+          <div className="album-details-container">
+            <Link to={`/album/${album.id}`}>
+              <h3 className="album-title">{album.title}</h3>
+            </Link>
+            <p className="album-artist">{album.albumArtist}</p>
+          </div>
         </div>
       )
     })
   }
 
+  const addToCollaborators = () => {
+    console.log(collaboratorsFull())
+    return !collaboratorsFull() ?
+      <p className="ask-to-add-string">
+        Add "{name.split('%20').join(' ')}" to collaborators?</p> :
+      <p className="ask-to-add-string">
+        You must remove a collaborator before adding this selection.</p>
+  }
+
+  let collaboratorsFull = () => {
+    return collaborations.left.name && collaborations.right.name ? true : false
+  }
+
   return (
     <section className="search-results-page">
       <div className="search-reults-container">
-        <div className="add-search-results">
-          <p>Add "{name.split('%20').join(' ')}" to collaborators?</p>
+        <section className="add-search-results">
+          <div className="ask-to-add-container">
+            { addToCollaborators() }
+          </div>
           <button
-            className="add-results-string"
+            disabled={collaboratorsFull()}
+            className="add-results-button"
             onClick={addSearchResultsToCollaborators}
-          >yes</button>
-        </div>
+          >choose</button>
+        </section>
         <section className="artist-results-container">
           <h2 className="artist-results-header">Artists</h2>
           <div className="artist-results">
@@ -79,7 +115,7 @@ const SearchResults = () => {
         </section>
         <section className="albums-results-container">
           <h2 className="albums-results-header">Albums</h2>
-          <div className="ablums-results">
+          <div className="albums-results">
             { albumCards() }
           </div>
         </section>
