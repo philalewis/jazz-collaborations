@@ -20,12 +20,14 @@ describe('Home page and search results', () => {
       .contains('John Coltrane')
   })
 
-  it('should render instructions and a list of musician links that navigate to artist pages', () => {
+  it('should render instructions, a list of musician links that navigate to artist pages, and a navigable header that navigates back home', () => {
     cy.visit('http://localhost:3001/')
       .get('.instructions')
       .get('.artist-link')
       .contains('John Coltrane').click()
       .url().should('eq', 'http://localhost:3001/artist/2')
+      .get('h1').click()
+      .url().should('eq', 'http://localhost:3001/')
   })
 
   it('should display an error modal if there is a problem with a network request', () => {

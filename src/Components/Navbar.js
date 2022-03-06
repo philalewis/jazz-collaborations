@@ -31,7 +31,7 @@ const Navbar = () => {
         <input
           className="search-bar"
           type="text"
-          placeholder="Search by artist name or album title"
+          placeholder="Search for a musician"
           value={input}
           onChange={event => handleChange(event)}
           onKeyUp={event => handleKeyUp(event)}

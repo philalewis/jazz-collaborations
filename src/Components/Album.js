@@ -28,7 +28,7 @@ const Album = () => {
         </div>
         <div className="album-info-container">
           <div className="album-cover-container">
-            <img className="album-cover" src={album.cover} alt="album cover"/>
+            <img className="album-cover-image" src={album.cover} alt="album cover"/>
           </div>
           <div className="album-details-container">
             <h2 className="album-title">{album.title}</h2>

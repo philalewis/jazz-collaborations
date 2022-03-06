@@ -23,6 +23,10 @@ h1 {
   color: $white;
 }
 
+.home-button:hover {
+  cursor: pointer;
+}
+
 .searchbar-section {
   background-color: $gold;
   display: flex;
@@ -34,6 +38,7 @@ h1 {
   margin: 1%;
   border-radius: 5px;
   width: 60%;
+  height: 60%;
 }
 
 .search-button {
@@ -42,4 +47,5 @@ h1 {
   border: none;
   border-radius: 5px;
   color: white;
+  height: 60%;
 }
