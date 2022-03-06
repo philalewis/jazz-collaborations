@@ -5,11 +5,17 @@ import '../Styles/ArtistAlbums.scss'
 const ArtistAlbums = (props) => {
 
   const albumList = () => {
-    const albums = props.albums.sort((a, b) => a.releaseYear - b.releaseYear)
+    const albums = props.albums.sort((a, b) => {
+      return a.releaseYear - b.releaseYear
+    })
+    
     return albums.map(album => {
       return (
-        <Link className="album-link" to={`/album/${album.id}`} key={album.id}>
-          <p>{album.title}({album.releaseYear})</p>
+        <Link
+          className="album-link"
+          to={`/album/${album.id}`}
+          key={album.id}
+        ><p>{album.title}({album.releaseYear})</p>
         </Link>
       )
     })
