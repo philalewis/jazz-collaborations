@@ -10,24 +10,14 @@ const Navbar = () => {
     setInput(event.target.value)
   }
   
-  const search = (event) => {
-    const path = (`/search?${event.target.value}`)
-    return event.code === 'Enter' ? goToResults(path) : null
-  }
-
-  const goToResults = (path) => {
+  const search = () => {
+    const path = (`/search?${input}`)
     setInput('')
     navigate(path)
   }
 
   const handleKeyUp = event => {
-    event.preventDefault()
-    search(event)
-  }
-
-  const handleClick = event => {
-    event.preventDefault()
-    search(event)
+    return event.code === 'Enter' ? search() : null
   }
 
   return (
@@ -41,13 +31,15 @@ const Navbar = () => {
         <input
           className="search-bar"
           type="text"
-          placeholder="Search by artist name or album title"
+          placeholder="Search for a musician"
           value={input}
           onChange={event => handleChange(event)}
           onKeyUp={event => handleKeyUp(event)}
-        >
-        </input>
-        <button className="search-button" onClick={event => handleClick(event)}>SEARCH</button>
+        />
+        <button
+          className="search-button"
+          onClick={search}>
+        SEARCH</button>
       </section>
     </nav>
   )

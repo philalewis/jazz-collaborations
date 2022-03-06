@@ -1,15 +1,12 @@
 import React, { useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { Errors } from '../Contexts/ErrorContextProvider'
 import '../Styles/ErrorsModal.scss'
 
 const ErrorsModal = () => {
   const { errorMessage, setErrorMessage } = useContext(Errors)
-  const navigate = useNavigate()
 
   const exitErrorModal = () => {
     setErrorMessage(null)
-    navigate('/')
   }
 
   return (

@@ -35,6 +35,8 @@ const SearchResults = () => {
       setCollaborations({...collaborations, left: {name: name}})
     } else if (!collaborations.right.name) {
       setCollaborations({...collaborations, right: {name: name}})
+    } else {
+      setErrorMessage('There are already two musicians selected. Please remove one of the choices first.')
     }
   }
   
@@ -74,7 +76,7 @@ const SearchResults = () => {
             <Link to={`/album/${album.id}`}>
               <h3 className="album-title">{album.title}</h3>
             </Link>
-            <p className="album-artist">{album.albumArtist}</p>
+            <p className="album-artist">by {album.albumArtist}</p>
           </div>
         </div>
       )
@@ -114,7 +116,7 @@ const SearchResults = () => {
           </div>
         </section>
         <section className="albums-results-container">
-          <h2 className="albums-results-header">Albums</h2>
+          <h2 className="albums-results-header">Appears On: </h2>
           <div className="albums-results">
             { albumCards() }
           </div>
