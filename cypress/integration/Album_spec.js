@@ -1,5 +1,9 @@
 describe('Album page', () => {
   it('should have album details and a list of musicians that can be added to and removed from the collaboration form', () => {
+    cy.fixture('aLoveSupreme.json').as('aLoveSupremeData')
+      .then((json) => {
+        cy.intercept('GET', 'http://localhost:3000/api/v1/album/205', json)
+      })
     cy.visit('http://localhost:3001/album/205')
       .get('.collaborators-form')
       .get('.album-info-container')
@@ -21,6 +25,10 @@ describe('Album page', () => {
   })
 
   it('should not be able to add players that are already included in the form', () => {
+    cy.fixture('aLoveSupreme.json').as('aLoveSupremeData')
+      .then((json) => {
+        cy.intercept('GET', 'http://localhost:3000/api/v1/album/205', json)
+      })
     cy.visit('http://localhost:3001/album/205')
       .get('.name-and-button-section')
       .find('.add-collaborator-button').eq(1).click()
@@ -32,6 +40,18 @@ describe('Album page', () => {
   })
 
   it('should be able to click a button to navigate to the collaborations page once two musicians are selected', () => {
+    cy.fixture('aLoveSupreme.json').as('aLoveSupremeData')
+      .then((json) => {
+        cy.intercept('GET', 'http://localhost:3000/api/v1/album/205', json)
+      })
+    cy.fixture('jimmyGarrisonSearchData.json').as('jimmyGarrisonData')
+      .then((json) => {
+        cy.intercept('GET', 'http://localhost:3000/api/v1/appearances/jimmy%20garrison', json)
+      })
+    cy.fixture('coltraneSearchData.json').as('coltraneSearchData')
+      .then((json) => {
+        cy.intercept('GET', 'http://localhost:3000/api/v1/appearances/John%20Coltrane', json)
+      })
     cy.visit('http://localhost:3001/album/205')
       .get('.name-and-button-section')
       .find('.add-collaborator-button').eq(0).click()
