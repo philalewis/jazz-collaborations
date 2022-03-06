@@ -61,6 +61,61 @@ describe('Home page and search results', () => {
   })
 
   it('should render instructions, a list of musician links that navigate to artist pages, and a navigable header that navigates back home', () => {
+    cy.intercept('GET', 'http://localhost:3000/api/v1/musicians', {
+      "names": [
+        {
+          "name": "Miles Davis",
+          "id": "1"
+        },
+        {
+          "name": "John Coltrane",
+          "id": "2"
+        }
+      ]
+    })
+    cy.intercept('GET', 'http://localhost:3000/api/v1/musicians/2', {
+      "names": {
+        "name": "John Coltrane",
+        "id": "2",
+        "instrument": "Saxophone",
+        "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/John_Coltrane_in_1963.jpg/1920px-John_Coltrane_in_1963.jpg",
+        "albums": [
+          {
+          "id": 201,
+          "albumArtist": "John Coltrane",
+          "title": "Blue Train",
+          "releaseYear": 1958,
+          "cover": "https://upload.wikimedia.org/wikipedia/en/6/68/John_Coltrane_-_Blue_Train.jpg",
+          "musicians": [
+            {
+              "name": "John Coltrane",
+              "instrument": "tenor saxophone"
+            },
+            {
+              "name": "Lee Morgan",
+              "instrument": "trumpet"
+            },
+            {
+              "name": "Curtis Fuller",
+              "instrument": "trombone"
+            },
+            {
+              "name": "Kenny Drew",
+              "instrument": "piano"
+            },
+            {
+              "name": "Paul Chambers",
+              "instrument": "bass"
+            },
+            {
+              "name": "Philly Joe Jones",
+              "instrument": "drums"
+            }
+          ]
+        }
+      ]
+    }
+    })
     cy.visit('http://localhost:3001/')
       .get('.instructions')
       .get('.artist-link')
