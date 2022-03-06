@@ -1,43 +1,41 @@
 {
-  "names": {
-      "name": "John Coltrane",
-      "id": "2",
-      "instrument": "Saxophone",
-      "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/John_Coltrane_in_1963.jpg/1920px-John_Coltrane_in_1963.jpg",
-      "albums": [
+  "name": "John Coltrane",
+  "id": "2",
+  "instrument": "Saxophone",
+  "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/John_Coltrane_in_1963.jpg/1920px-John_Coltrane_in_1963.jpg",
+  "albums": [
+    {
+      "id": 201,
+      "albumArtist": "John Coltrane",
+      "title": "Blue Train",
+      "releaseYear": 1958,
+      "cover": "https://upload.wikimedia.org/wikipedia/en/6/68/John_Coltrane_-_Blue_Train.jpg",
+      "musicians": [
         {
-        "id": 201,
-        "albumArtist": "John Coltrane",
-        "title": "Blue Train",
-        "releaseYear": 1958,
-        "cover": "https://upload.wikimedia.org/wikipedia/en/6/68/John_Coltrane_-_Blue_Train.jpg",
-        "musicians": [
-          {
-            "name": "John Coltrane",
-            "instrument": "tenor saxophone"
-          },
-          {
-            "name": "Lee Morgan",
-            "instrument": "trumpet"
-          },
-          {
-            "name": "Curtis Fuller",
-            "instrument": "trombone"
-          },
-          {
-            "name": "Kenny Drew",
-            "instrument": "piano"
-          },
-          {
-            "name": "Paul Chambers",
-            "instrument": "bass"
-          },
-          {
-            "name": "Philly Joe Jones",
-            "instrument": "drums"
-          }
-        ]
-      }
-    ]
-  }
+          "name": "John Coltrane",
+          "instrument": "tenor saxophone"
+        },
+        {
+          "name": "Lee Morgan",
+          "instrument": "trumpet"
+        },
+        {
+          "name": "Curtis Fuller",
+          "instrument": "trombone"
+        },
+        {
+          "name": "Kenny Drew",
+          "instrument": "piano"
+        },
+        {
+          "name": "Paul Chambers",
+          "instrument": "bass"
+        },
+        {
+          "name": "Philly Joe Jones",
+          "instrument": "drums"
+        }
+      ]
+    }
+  ]
 }
