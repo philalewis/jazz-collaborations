@@ -13,7 +13,7 @@ const Personnel = (props) => {
     checkDisabled()
   }, [collaborations])
 
-  const addCollaborator = (event) => {
+  const addCollaborator = event => {
     event.preventDefault()
     if (!collaborations.left.name) {
       setCollaborations({...collaborations, left: {name: props.name}})

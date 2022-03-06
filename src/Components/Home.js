@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { getArtistNames } from '../apiCalls'
 import { Errors } from '../Contexts/ErrorContextProvider'
 import '../Styles/Home.scss'
@@ -7,7 +7,6 @@ import '../Styles/Home.scss'
 const Home = () => {
   const [ names, setNames ] = useState([])
   const { setErrorMessage } = useContext(Errors)
-  const navigate = useNavigate()
 
   useEffect(() => {
     getArtistNames()

@@ -5,6 +5,7 @@ import { getAlbum } from '../apiCalls'
 import '../Styles/Album.scss'
 import CollaborationsForm from './CollaboratorsForm'
 import Personnel from './Personnel'
+import { getAlbumIdFromURL } from '../utilities'
 
 const Album = () => {
   const [ album, setAlbum ] = useState(null)
@@ -12,7 +13,7 @@ const Album = () => {
   const { setErrorMessage } = useContext(Errors)
 
   useEffect(() => {
-    const id = location.pathname.split('/')[2]
+    const id = getAlbumIdFromURL(location)
     getAlbum(id)
     .then(data => {
       setAlbum(data)
@@ -21,7 +22,7 @@ const Album = () => {
   }, [])
 
   const showAlbumDetails = () => {
-    return album !== null ?
+    return album !== null &&
       <>
         <div className="collaborator-form-container">
           <CollaborationsForm />
@@ -40,10 +41,7 @@ const Album = () => {
           <section className="musicians-container">
             {musicians()}
           </section>}
-      </> :
-      <section>
-        <p>Sorry, we could not find the album you are looking for.</p>
-      </section>
+      </>
   }
 
   const musicians = () => album.musicians.map(musician => {
