@@ -4,7 +4,6 @@ import { getNameFromURL } from '../utilities'
 import { useLocation } from 'react-router-dom'
 import { Errors } from '../Contexts/ErrorContextProvider'
 
-
 const AddResults = ({ addCollaborator }) => {
   const { collaborations, setCollaborations } = useContext(Collaborations)
   const location = useLocation()

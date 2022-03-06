@@ -1,11 +1,8 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-// import { Collaborations } from '../Contexts/CollaborationsContextProvider'
-
 
 const ArtistResults = ({ artists, addCollaborator }) => {
-  // const { collaborations, setCollaborations } = useContext(Collaborations)
   
   const handleClick = name => {
     addCollaborator(name)

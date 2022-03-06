@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { useLocation, Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { getArtistNames, getAlbumsByName } from '../apiCalls'
 import { Errors } from '../Contexts/ErrorContextProvider'
 import { Collaborations } from '../Contexts/CollaborationsContextProvider'
@@ -8,6 +8,7 @@ import { filterArtists, getNameFromURL } from '../utilities'
 import AddResults from './AddResults'
 import AlbumsResults from './AlbumsResults'
 import ArtistResults from './ArtistResults'
+import CollaboratorsForm from './CollaboratorsForm'
 
 const SearchResults = () => {
   const [ artists, setArtists ] = useState([])
@@ -41,6 +42,9 @@ const SearchResults = () => {
   return (
     <section className="search-results-page">
       <div className="search-reults-container">
+        <div className="collaborators-form-container">
+          <CollaboratorsForm />
+        </div>
         <section className="add-search-results">
           <AddResults addCollaborator={addCollaborator} />
         </section>
