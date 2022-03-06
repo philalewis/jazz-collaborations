@@ -12,7 +12,12 @@ const Navbar = () => {
   
   const search = (event) => {
     const path = (`/search?${event.target.value}`)
-    return event.code === 'Enter' ? navigate(path) : null
+    return event.code === 'Enter' ? goToResults(path) : null
+  }
+
+  const goToResults = (path) => {
+    setInput('')
+    navigate(path)
   }
 
   const handleKeyUp = event => {

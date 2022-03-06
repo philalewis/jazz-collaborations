@@ -5,7 +5,7 @@ export const getArtistNames = async () => {
     const artists = await response.json()
     return artists
   } catch(error) {
-    throw `${error.status} ${error.statusText}`
+    throw 'Sorry, something went wrong. Please try again later.'
   }
 }
 
@@ -16,7 +16,7 @@ export const getSingleArtist = async (id) => {
     const data = await response.json()
     return data
   } catch(error) {
-    throw `${error.status} ${error.statusText}`
+    throw 'Sorry, something went wrong. Please try again later.'
   }
 }
 
@@ -27,7 +27,7 @@ export const getAlbum = async (id) => {
     const data = await response.json()
     return data
   } catch(error) {
-    throw `${error.status} ${error.statusText}`
+    throw 'Sorry, something went wrong. Please try again later.'
   }
 }
 
@@ -38,6 +38,6 @@ export const getAlbumsByName = async (name) => {
     const data = await response.json()
     return data
   } catch(error) {
-    throw new Error(error)
+    throw 'Sorry, something went wrong. Please try again later.'
   }
 }

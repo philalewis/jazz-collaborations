@@ -9,6 +9,7 @@ import ErrorsModal from './Components/ErrorsModal'
 import Artist from './Components/Artist'
 import Album from './Components/Album'
 import CollaborationsPage from './Components/CollaborationsPage'
+import SearchResults from './Components/SearchResults'
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
             <Route path="/artist/:id" element={<Artist />} />
             <Route path="/album/:id" element={<Album />} />
             <Route exact path="/collaborations" element={<CollaborationsPage />} />
+            <Route path="/search" element={<SearchResults />} />
           </Routes>
         </CollaborationsProvider>
       </ErrorsProvider>
