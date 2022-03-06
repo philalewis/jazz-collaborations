@@ -11,22 +11,16 @@ const Navbar = () => {
   }
   
   const search = (event) => {
-    const path = (`/search?${event.target.value}`)
-    return event.code === 'Enter' ? goToResults(path) : null
-  }
-
-  const goToResults = (path) => {
+    const path = (`/search?${input}`)
     setInput('')
     navigate(path)
   }
 
   const handleKeyUp = event => {
-    event.preventDefault()
-    search(event)
+    return event.code === 'Enter' ? search(event) : null
   }
 
   const handleClick = event => {
-    event.preventDefault()
     search(event)
   }
 
@@ -45,9 +39,11 @@ const Navbar = () => {
           value={input}
           onChange={event => handleChange(event)}
           onKeyUp={event => handleKeyUp(event)}
-        >
-        </input>
-        <button className="search-button" onClick={event => handleClick(event)}>SEARCH</button>
+        />
+        <button
+          className="search-button"
+          onClick={event => handleClick(event)}>
+        SEARCH</button>
       </section>
     </nav>
   )
