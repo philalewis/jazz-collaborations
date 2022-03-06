@@ -1,4 +1,4 @@
-describe.only('Search Results user flow', () => {
+describe('Search Results user flow', () => {
   it('should navigate to a search results page when searched from anywhere in the app', () => {
     cy.visit('http://localhost:3001/')
       .get('.search-bar')
@@ -23,4 +23,27 @@ describe.only('Search Results user flow', () => {
       .type('miles davis{enter}')
       .url().should('eq', 'http://localhost:3001/search?miles%20davis')
   })
+
+  it.only('', () => {
+    cy.visit('http://localhost:3001/')
+    .get('.search-bar')
+    .type('miles davis{enter}')
+    .get('.ask-to-add-string')
+    .contains('Add "miles davis" to collaborators?')
+    .get('.add-results-button')
+    .should('not.be.disabled')
+    .visit('http://localhost:3001/artist/1')
+    .get('.add-collaborator-button').click()
+    .get('.album-link')
+    .contains('Kind of Blue').click()
+    .get('.add-collaborator-button').eq(2).click()
+    .get('.search-bar')
+    .type('john coltrane{enter}')
+    .get('.ask-to-add-string')
+    .contains('You must remove a collaborator before adding this selection.')
+    .get('.add-results-button')
+    .should('be.disabled')
+  })
+
+  // it('should display search results with navigable links', () => {})
 })
