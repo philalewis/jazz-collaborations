@@ -8,7 +8,7 @@ import '../Styles/CollaborationsPage.scss'
 const CollaborationsPage = () => {
   const { collaborations, setCollaborations } = useContext(Collaborations)
   const { setErrorMessage } = useContext(Errors)
-  const [ albums, setAlbums ] = useState({})
+  const [ albums, setAlbums ] = useState([])
   const navigate = useNavigate()
 
   useEffect(() => {
