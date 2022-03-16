@@ -2,9 +2,9 @@ describe('Artist page user flow', () => {
   it('should see artist details, collaborator section, and be able to add and remove the artist from the collaborator form', () => {
     cy.fixture('coltraneArtistPage.json').as('coltraneArtistPage')
       .then((json) => {
-        cy.intercept('GET', 'http://localhost:3000/api/v1/musicians/2', json)
+        cy.intercept('GET', 'https://jazz-collaborations-api.herokuapp.com/api/v1/musicians/2', json)
       })
-    cy.visit('http://localhost:3001/artist/2')
+    cy.visit('http://localhost:3000/artist/2')
       .get('.collaborators-form')
       .get('.middle-button')
       .should('be.disabled')
@@ -25,6 +25,6 @@ describe('Artist page user flow', () => {
       .get('.albums-container')
       .get('.album-link')
       .contains('Blue Train').click()
-      .url().should('eq', 'http://localhost:3001/album/201')
+      .url().should('eq', 'http://localhost:3000/album/201')
   })
 })
