@@ -1,5 +1,5 @@
 export const getArtistNames = async () => {
-  const response = await fetch('http://localhost:3000/api/v1/musicians')
+  const response = await fetch('https://jazz-collaborations-api.herokuapp.com/api/v1/musicians')
 
   try {
     const artists = await response.json()
@@ -10,7 +10,7 @@ export const getArtistNames = async () => {
 }
 
 export const getSingleArtist = async (id) => {
-  const response = await fetch(`http://localhost:3000/api/v1/musicians/${id}`)
+  const response = await fetch(`https://jazz-collaborations-api.herokuapp.com/api/v1/musicians/${id}`)
 
   try {
     const data = await response.json()
@@ -21,7 +21,7 @@ export const getSingleArtist = async (id) => {
 }
 
 export const getAlbum = async (id) => {
-  const response = await fetch(`http://localhost:3000/api/v1/album/${id}`)
+  const response = await fetch(`https://jazz-collaborations-api.herokuapp.com/api/v1/album/${id}`)
 
   try {
     const data = await response.json()
@@ -32,7 +32,7 @@ export const getAlbum = async (id) => {
 }
 
 export const getAlbumsByName = async (name) => {
-  const response = await fetch(`http://localhost:3000/api/v1/appearances/${name}`)
+  const response = await fetch(`https://jazz-collaborations-api.herokuapp.com/api/v1/appearances/${name}`)
 
   try {
     const data = await response.json()
