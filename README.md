@@ -1,5 +1,5 @@
 # Jazz Collaborations
-An app that lets a user explore common works between jazz artists.
+An app that lets a user explore common works between jazz artists. You can visit the deployed site [here](https://jazz-collaborations.herokuapp.com/).
 
 ## Contents
 
@@ -31,13 +31,6 @@ On the album view, the user can add any of the performers to thier collaborators
 The search results allow the user to add the musican found (if any) to the collaborators. Links to albums and musician pages are included.
 
 ![see-collaborations](https://media.giphy.com/media/u56UKsHNXoznk150Xh/giphy.gif)
-
-
-## Set Up
-
-You can open this app at the deployed link [here](https://jazz-collaborations.herokuapp.com/).
-
-In order to run the app, a local server shuold be used. You can clone [this repo](https://github.com/philalewis/jazz) to run the server on your local machine. Clone the repo, `cd` into it, and run `nodemon server.js` to run it on `localhost:3000/`
 
 ## Project Goals
 
