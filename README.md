@@ -53,7 +53,6 @@ You can view the projects specs [here](https://frontend.turing.edu/projects/modu
 ## Future Iterations
 
 - Page for adding more artists and albums to the database
-- Deploying the backend on `Heroku`
 
 ## Tech Stack
 
