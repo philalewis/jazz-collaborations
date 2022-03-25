@@ -4,7 +4,6 @@ An app that lets a user explore common works between jazz artists. You can visit
 ## Contents
 
 - [Abstract](#abstract)
-- [Set Up](#set-up)
 - [Project Goals](#project-goals)
 - [Project Specs](#project-specs)
 - [Challenges](#challenges)
